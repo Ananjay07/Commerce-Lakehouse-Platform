@@ -1,0 +1,612 @@
+{
+  "Orders": [
+    {
+      "AmazonOrderId": "721-1148637-3117028",
+      "SellerOrderId": "AMZ-CC-39674",
+      "PurchaseDate": "2026-07-21T07:53:05Z",
+      "LastUpdateDate": "2026-07-21T08:04:05Z",
+      "OrderStatus": "Shipped",
+      "FulfillmentChannel": "AFN",
+      "SalesChannel": "Amazon.in",
+      "OrderTotal": {
+        "CurrencyCode": "INR",
+        "Amount": "588.82"
+      },
+      "NumberOfItemsShipped": 1,
+      "NumberOfItemsUnshipped": 0,
+      "PaymentMethod": "COD",
+      "BuyerEmail": "priya.patel@outlook.com",
+      "BuyerInfo": {
+        "BuyerName": "Priya Patel",
+        "BuyerCounty": "IN"
+      },
+      "OrderItems": [
+        {
+          "ASIN": "B08XM6H21A",
+          "SellerSKU": "SKU-TSHIRT-01",
+          "Title": "CartCo Classic White T-Shirt",
+          "QuantityOrdered": 1,
+          "QuantityShipped": 1,
+          "ItemPrice": {
+            "CurrencyCode": "INR",
+            "Amount": "499.00"
+          },
+          "ItemTax": {
+            "CurrencyCode": "INR",
+            "Amount": "89.82"
+          }
+        }
+      ]
+    },
+    {
+      "AmazonOrderId": "462-7251941-4214204",
+      "SellerOrderId": "AMZ-CC-39675",
+      "PurchaseDate": "2026-07-21T08:51:05Z",
+      "LastUpdateDate": "2026-07-21T09:28:05Z",
+      "OrderStatus": "Shipped",
+      "FulfillmentChannel": "MFN",
+      "SalesChannel": "Amazon.in",
+      "OrderTotal": {
+        "CurrencyCode": "INR",
+        "Amount": "3773.64"
+      },
+      "NumberOfItemsShipped": 2,
+      "NumberOfItemsUnshipped": 0,
+      "PaymentMethod": "Other",
+      "BuyerEmail": "pooja.nair@yahoo.com",
+      "BuyerInfo": {
+        "BuyerName": "Pooja Nair",
+        "BuyerCounty": "IN"
+      },
+      "OrderItems": [
+        {
+          "ASIN": "B08XM9Z83C",
+          "SellerSKU": "SKU-HOODIE-03",
+          "Title": "CartCo Fleece Hoodie Black",
+          "QuantityOrdered": 1,
+          "QuantityShipped": 1,
+          "ItemPrice": {
+            "CurrencyCode": "INR",
+            "Amount": "1899.00"
+          },
+          "ItemTax": {
+            "CurrencyCode": "INR",
+            "Amount": "341.82"
+          }
+        },
+        {
+          "ASIN": "B08XM7Y52B",
+          "SellerSKU": "SKU-JEANS-02",
+          "Title": "CartCo Slim Fit Blue Jeans",
+          "QuantityOrdered": 1,
+          "QuantityShipped": 1,
+          "ItemPrice": {
+            "CurrencyCode": "INR",
+            "Amount": "1299.00"
+          },
+          "ItemTax": {
+            "CurrencyCode": "INR",
+            "Amount": "233.82"
+          }
+        }
+      ]
+    },
+    {
+      "AmazonOrderId": "995-8610894-5635768",
+      "SellerOrderId": "AMZ-CC-39676",
+      "PurchaseDate": "2026-07-21T07:41:05Z",
+      "LastUpdateDate": "2026-07-21T07:51:05Z",
+      "OrderStatus": "Shipped",
+      "FulfillmentChannel": "AFN",
+      "SalesChannel": "Amazon.in",
+      "OrderTotal": {
+        "CurrencyCode": "INR",
+        "Amount": "3301.64"
+      },
+      "NumberOfItemsShipped": 2,
+      "NumberOfItemsUnshipped": 0,
+      "PaymentMethod": "Other",
+      "BuyerEmail": "sneha.joshi@gmail.com",
+      "BuyerInfo": {
+        "BuyerName": "Sneha Joshi",
+        "BuyerCounty": "IN"
+      },
+      "OrderItems": [
+        {
+          "ASIN": "B08XM9W24D",
+          "SellerSKU": "SKU-SOCKS-04",
+          "Title": "CartCo Ankle Socks (3-Pack)",
+          "QuantityOrdered": 1,
+          "QuantityShipped": 1,
+          "ItemPrice": {
+            "CurrencyCode": "INR",
+            "Amount": "299.00"
+          },
+          "ItemTax": {
+            "CurrencyCode": "INR",
+            "Amount": "53.82"
+          }
+        },
+        {
+          "ASIN": "B08XM8X15E",
+          "SellerSKU": "SKU-JACKET-05",
+          "Title": "CartCo Premium Denim Jacket",
+          "QuantityOrdered": 1,
+          "QuantityShipped": 1,
+          "ItemPrice": {
+            "CurrencyCode": "INR",
+            "Amount": "2499.00"
+          },
+          "ItemTax": {
+            "CurrencyCode": "INR",
+            "Amount": "449.82"
+          }
+        }
+      ]
+    },
+    {
+      "AmazonOrderId": "462-4748573-1774422",
+      "SellerOrderId": "AMZ-CC-39677",
+      "PurchaseDate": "2026-07-21T07:46:05Z",
+      "LastUpdateDate": "2026-07-21T07:57:05Z",
+      "OrderStatus": "Shipped",
+      "FulfillmentChannel": "MFN",
+      "SalesChannel": "Amazon.in",
+      "OrderTotal": {
+        "CurrencyCode": "INR",
+        "Amount": "8138.46"
+      },
+      "NumberOfItemsShipped": 2,
+      "NumberOfItemsUnshipped": 0,
+      "PaymentMethod": "Other",
+      "BuyerEmail": "amit.reddy@hotmail.com",
+      "BuyerInfo": {
+        "BuyerName": "Amit Reddy",
+        "BuyerCounty": "IN"
+      },
+      "OrderItems": [
+        {
+          "ASIN": "B08XM8X15E",
+          "SellerSKU": "SKU-JACKET-05",
+          "Title": "CartCo Premium Denim Jacket",
+          "QuantityOrdered": 2,
+          "QuantityShipped": 2,
+          "ItemPrice": {
+            "CurrencyCode": "INR",
+            "Amount": "4998.00"
+          },
+          "ItemTax": {
+            "CurrencyCode": "INR",
+            "Amount": "899.64"
+          }
+        },
+        {
+          "ASIN": "B08XM9Z83C",
+          "SellerSKU": "SKU-HOODIE-03",
+          "Title": "CartCo Fleece Hoodie Black",
+          "QuantityOrdered": 1,
+          "QuantityShipped": 1,
+          "ItemPrice": {
+            "CurrencyCode": "INR",
+            "Amount": "1899.00"
+          },
+          "ItemTax": {
+            "CurrencyCode": "INR",
+            "Amount": "341.82"
+          }
+        }
+      ]
+    },
+    {
+      "AmazonOrderId": "704-2822352-2694087",
+      "SellerOrderId": "AMZ-CC-39678",
+      "PurchaseDate": "2026-07-21T07:58:05Z",
+      "LastUpdateDate": "2026-07-21T08:28:05Z",
+      "OrderStatus": "Shipped",
+      "FulfillmentChannel": "AFN",
+      "SalesChannel": "Amazon.in",
+      "OrderTotal": {
+        "CurrencyCode": "INR",
+        "Amount": "2710.46"
+      },
+      "NumberOfItemsShipped": 2,
+      "NumberOfItemsUnshipped": 0,
+      "PaymentMethod": "Other",
+      "BuyerEmail": "pooja.rao@outlook.com",
+      "BuyerInfo": {
+        "BuyerName": "Pooja Rao",
+        "BuyerCounty": "IN"
+      },
+      "OrderItems": [
+        {
+          "ASIN": "B08XM7Y52B",
+          "SellerSKU": "SKU-JEANS-02",
+          "Title": "CartCo Slim Fit Blue Jeans",
+          "QuantityOrdered": 1,
+          "QuantityShipped": 1,
+          "ItemPrice": {
+            "CurrencyCode": "INR",
+            "Amount": "1299.00"
+          },
+          "ItemTax": {
+            "CurrencyCode": "INR",
+            "Amount": "233.82"
+          }
+        },
+        {
+          "ASIN": "B08XM6H21A",
+          "SellerSKU": "SKU-TSHIRT-01",
+          "Title": "CartCo Classic White T-Shirt",
+          "QuantityOrdered": 2,
+          "QuantityShipped": 2,
+          "ItemPrice": {
+            "CurrencyCode": "INR",
+            "Amount": "998.00"
+          },
+          "ItemTax": {
+            "CurrencyCode": "INR",
+            "Amount": "179.64"
+          }
+        }
+      ]
+    },
+    {
+      "AmazonOrderId": "551-4016636-8564097",
+      "SellerOrderId": "AMZ-CC-39679",
+      "PurchaseDate": "2026-07-21T08:05:05Z",
+      "LastUpdateDate": "2026-07-21T08:37:05Z",
+      "OrderStatus": "Shipped",
+      "FulfillmentChannel": "AFN",
+      "SalesChannel": "Amazon.in",
+      "OrderTotal": {
+        "CurrencyCode": "INR",
+        "Amount": "6720.10"
+      },
+      "NumberOfItemsShipped": 3,
+      "NumberOfItemsUnshipped": 0,
+      "PaymentMethod": "COD",
+      "BuyerEmail": "priya.nair@outlook.com",
+      "BuyerInfo": {
+        "BuyerName": "Priya Nair",
+        "BuyerCounty": "IN"
+      },
+      "OrderItems": [
+        {
+          "ASIN": "B08XM9Z83C",
+          "SellerSKU": "SKU-HOODIE-03",
+          "Title": "CartCo Fleece Hoodie Black",
+          "QuantityOrdered": 2,
+          "QuantityShipped": 2,
+          "ItemPrice": {
+            "CurrencyCode": "INR",
+            "Amount": "3798.00"
+          },
+          "ItemTax": {
+            "CurrencyCode": "INR",
+            "Amount": "683.64"
+          }
+        },
+        {
+          "ASIN": "B08XM7Y52B",
+          "SellerSKU": "SKU-JEANS-02",
+          "Title": "CartCo Slim Fit Blue Jeans",
+          "QuantityOrdered": 1,
+          "QuantityShipped": 1,
+          "ItemPrice": {
+            "CurrencyCode": "INR",
+            "Amount": "1299.00"
+          },
+          "ItemTax": {
+            "CurrencyCode": "INR",
+            "Amount": "233.82"
+          }
+        },
+        {
+          "ASIN": "B08XM9W24D",
+          "SellerSKU": "SKU-SOCKS-04",
+          "Title": "CartCo Ankle Socks (3-Pack)",
+          "QuantityOrdered": 2,
+          "QuantityShipped": 2,
+          "ItemPrice": {
+            "CurrencyCode": "INR",
+            "Amount": "598.00"
+          },
+          "ItemTax": {
+            "CurrencyCode": "INR",
+            "Amount": "107.64"
+          }
+        }
+      ]
+    },
+    {
+      "AmazonOrderId": "197-4633480-6595961",
+      "SellerOrderId": "AMZ-CC-39680",
+      "PurchaseDate": "2026-07-21T08:34:05Z",
+      "LastUpdateDate": "2026-07-21T09:10:05Z",
+      "OrderStatus": "Shipped",
+      "FulfillmentChannel": "MFN",
+      "SalesChannel": "Amazon.in",
+      "OrderTotal": {
+        "CurrencyCode": "INR",
+        "Amount": "5423.28"
+      },
+      "NumberOfItemsShipped": 3,
+      "NumberOfItemsUnshipped": 0,
+      "PaymentMethod": "Other",
+      "BuyerEmail": "priya.patel@gmail.com",
+      "BuyerInfo": {
+        "BuyerName": "Priya Patel",
+        "BuyerCounty": "IN"
+      },
+      "OrderItems": [
+        {
+          "ASIN": "B08XM6H21A",
+          "SellerSKU": "SKU-TSHIRT-01",
+          "Title": "CartCo Classic White T-Shirt",
+          "QuantityOrdered": 1,
+          "QuantityShipped": 1,
+          "ItemPrice": {
+            "CurrencyCode": "INR",
+            "Amount": "499.00"
+          },
+          "ItemTax": {
+            "CurrencyCode": "INR",
+            "Amount": "89.82"
+          }
+        },
+        {
+          "ASIN": "B08XM9W24D",
+          "SellerSKU": "SKU-SOCKS-04",
+          "Title": "CartCo Ankle Socks (3-Pack)",
+          "QuantityOrdered": 1,
+          "QuantityShipped": 1,
+          "ItemPrice": {
+            "CurrencyCode": "INR",
+            "Amount": "299.00"
+          },
+          "ItemTax": {
+            "CurrencyCode": "INR",
+            "Amount": "53.82"
+          }
+        },
+        {
+          "ASIN": "B08XM9Z83C",
+          "SellerSKU": "SKU-HOODIE-03",
+          "Title": "CartCo Fleece Hoodie Black",
+          "QuantityOrdered": 2,
+          "QuantityShipped": 2,
+          "ItemPrice": {
+            "CurrencyCode": "INR",
+            "Amount": "3798.00"
+          },
+          "ItemTax": {
+            "CurrencyCode": "INR",
+            "Amount": "683.64"
+          }
+        }
+      ]
+    },
+    {
+      "AmazonOrderId": "945-4756579-7540908",
+      "SellerOrderId": "AMZ-CC-39681",
+      "PurchaseDate": "2026-07-21T07:38:05Z",
+      "LastUpdateDate": "2026-07-21T08:31:05Z",
+      "OrderStatus": "Shipped",
+      "FulfillmentChannel": "AFN",
+      "SalesChannel": "Amazon.in",
+      "OrderTotal": {
+        "CurrencyCode": "INR",
+        "Amount": "3416.10"
+      },
+      "NumberOfItemsShipped": 3,
+      "NumberOfItemsUnshipped": 0,
+      "PaymentMethod": "Other",
+      "BuyerEmail": "vikram.mehta@outlook.com",
+      "BuyerInfo": {
+        "BuyerName": "Vikram Mehta",
+        "BuyerCounty": "IN"
+      },
+      "OrderItems": [
+        {
+          "ASIN": "B08XM9W24D",
+          "SellerSKU": "SKU-SOCKS-04",
+          "Title": "CartCo Ankle Socks (3-Pack)",
+          "QuantityOrdered": 2,
+          "QuantityShipped": 2,
+          "ItemPrice": {
+            "CurrencyCode": "INR",
+            "Amount": "598.00"
+          },
+          "ItemTax": {
+            "CurrencyCode": "INR",
+            "Amount": "107.64"
+          }
+        },
+        {
+          "ASIN": "B08XM7Y52B",
+          "SellerSKU": "SKU-JEANS-02",
+          "Title": "CartCo Slim Fit Blue Jeans",
+          "QuantityOrdered": 1,
+          "QuantityShipped": 1,
+          "ItemPrice": {
+            "CurrencyCode": "INR",
+            "Amount": "1299.00"
+          },
+          "ItemTax": {
+            "CurrencyCode": "INR",
+            "Amount": "233.82"
+          }
+        },
+        {
+          "ASIN": "B08XM6H21A",
+          "SellerSKU": "SKU-TSHIRT-01",
+          "Title": "CartCo Classic White T-Shirt",
+          "QuantityOrdered": 2,
+          "QuantityShipped": 2,
+          "ItemPrice": {
+            "CurrencyCode": "INR",
+            "Amount": "998.00"
+          },
+          "ItemTax": {
+            "CurrencyCode": "INR",
+            "Amount": "179.64"
+          }
+        }
+      ]
+    },
+    {
+      "AmazonOrderId": "327-2412230-8677982",
+      "SellerOrderId": "AMZ-CC-39682",
+      "PurchaseDate": "2026-07-21T09:11:05Z",
+      "LastUpdateDate": "2026-07-21T09:36:05Z",
+      "OrderStatus": "Shipped",
+      "FulfillmentChannel": "MFN",
+      "SalesChannel": "Amazon.in",
+      "OrderTotal": {
+        "CurrencyCode": "INR",
+        "Amount": "3065.64"
+      },
+      "NumberOfItemsShipped": 1,
+      "NumberOfItemsUnshipped": 0,
+      "PaymentMethod": "COD",
+      "BuyerEmail": "karan.joshi@gmail.com",
+      "BuyerInfo": {
+        "BuyerName": "Karan Joshi",
+        "BuyerCounty": "IN"
+      },
+      "OrderItems": [
+        {
+          "ASIN": "B08XM7Y52B",
+          "SellerSKU": "SKU-JEANS-02",
+          "Title": "CartCo Slim Fit Blue Jeans",
+          "QuantityOrdered": 2,
+          "QuantityShipped": 2,
+          "ItemPrice": {
+            "CurrencyCode": "INR",
+            "Amount": "2598.00"
+          },
+          "ItemTax": {
+            "CurrencyCode": "INR",
+            "Amount": "467.64"
+          }
+        }
+      ]
+    },
+    {
+      "AmazonOrderId": "389-1995894-9582563",
+      "SellerOrderId": "AMZ-CC-39683",
+      "PurchaseDate": "2026-07-21T07:22:05Z",
+      "LastUpdateDate": "2026-07-21T08:01:05Z",
+      "OrderStatus": "Shipped",
+      "FulfillmentChannel": "MFN",
+      "SalesChannel": "Amazon.in",
+      "OrderTotal": {
+        "CurrencyCode": "INR",
+        "Amount": "1532.82"
+      },
+      "NumberOfItemsShipped": 1,
+      "NumberOfItemsUnshipped": 0,
+      "PaymentMethod": "Other",
+      "BuyerEmail": "rohan.patel@outlook.com",
+      "BuyerInfo": {
+        "BuyerName": "Rohan Patel",
+        "BuyerCounty": "IN"
+      },
+      "OrderItems": [
+        {
+          "ASIN": "B08XM7Y52B",
+          "SellerSKU": "SKU-JEANS-02",
+          "Title": "CartCo Slim Fit Blue Jeans",
+          "QuantityOrdered": 1,
+          "QuantityShipped": 1,
+          "ItemPrice": {
+            "CurrencyCode": "INR",
+            "Amount": "1299.00"
+          },
+          "ItemTax": {
+            "CurrencyCode": "INR",
+            "Amount": "233.82"
+          }
+        }
+      ]
+    },
+    {
+      "AmazonOrderId": "738-5659570-3394672",
+      "SellerOrderId": "AMZ-CC-39684",
+      "PurchaseDate": "2026-07-21T09:17:05Z",
+      "LastUpdateDate": "2026-07-21T09:38:05Z",
+      "OrderStatus": "Shipped",
+      "FulfillmentChannel": "MFN",
+      "SalesChannel": "Amazon.in",
+      "OrderTotal": {
+        "CurrencyCode": "INR",
+        "Amount": "588.82"
+      },
+      "NumberOfItemsShipped": 1,
+      "NumberOfItemsUnshipped": 0,
+      "PaymentMethod": "Other",
+      "BuyerEmail": "karan.singh@gmail.com",
+      "BuyerInfo": {
+        "BuyerName": "Karan Singh",
+        "BuyerCounty": "IN"
+      },
+      "OrderItems": [
+        {
+          "ASIN": "B08XM6H21A",
+          "SellerSKU": "SKU-TSHIRT-01",
+          "Title": "CartCo Classic White T-Shirt",
+          "QuantityOrdered": 1,
+          "QuantityShipped": 1,
+          "ItemPrice": {
+            "CurrencyCode": "INR",
+            "Amount": "499.00"
+          },
+          "ItemTax": {
+            "CurrencyCode": "INR",
+            "Amount": "89.82"
+          }
+        }
+      ]
+    },
+    {
+      "AmazonOrderId": "176-4309569-9139109",
+      "SellerOrderId": "AMZ-CC-39685",
+      "PurchaseDate": "2026-07-21T08:29:05Z",
+      "LastUpdateDate": "2026-07-21T09:01:05Z",
+      "OrderStatus": "Shipped",
+      "FulfillmentChannel": "MFN",
+      "SalesChannel": "Amazon.in",
+      "OrderTotal": {
+        "CurrencyCode": "INR",
+        "Amount": "705.64"
+      },
+      "NumberOfItemsShipped": 1,
+      "NumberOfItemsUnshipped": 0,
+      "PaymentMethod": "COD",
+      "BuyerEmail": "karan.mehta@yahoo.com",
+      "BuyerInfo": {
+        "BuyerName": "Karan Mehta",
+        "BuyerCounty": "IN"
+      },
+      "OrderItems": [
+        {
+          "ASIN": "B08XM9W24D",
+          "SellerSKU": "SKU-SOCKS-04",
+          "Title": "CartCo Ankle Socks (3-Pack)",
+          "QuantityOrdered": 2,
+          "QuantityShipped": 2,
+          "ItemPrice": {
+            "CurrencyCode": "INR",
+            "Amount": "598.00"
+          },
+          "ItemTax": {
+            "CurrencyCode": "INR",
+            "Amount": "107.64"
+          }
+        }
+      ]
+    }
+  ],
+  "CreatedTime": "2026-07-21T09:20:05Z",
+  "NextToken": "9cca4f72-1e32-4935-941f-971610e361d7"
+}

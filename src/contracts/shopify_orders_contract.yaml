@@ -1,0 +1,47 @@
+dataset: shopify_orders
+version: 1.0.0
+owner: cartco_data_platform
+contact: de-team@cartco.com
+schema_type: json_schema
+fields:
+  - name: id
+    type: string
+    required: true
+    description: "Unique identifier for the Shopify order"
+  - name: name
+    type: string
+    required: true
+    description: "User-facing order number prefix"
+  - name: createdAt
+    type: string
+    required: true
+    description: "Timestamp when the order was created"
+  - name: email
+    type: string
+    required: true
+    pattern: "^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-.]+$"
+    description: "Customer email address for correspondence"
+  - name: totalPriceSet
+    type: object
+    required: true
+    description: "Order total amount components"
+  - name: subtotalPriceSet
+    type: object
+    required: true
+    description: "Order subtotal amount components"
+  - name: totalTaxSet
+    type: object
+    required: true
+    description: "Order tax amount components"
+  - name: customer
+    type: object
+    required: true
+    description: "Associated customer account attributes"
+  - name: lineItems
+    type: object
+    required: true
+    description: "Array of transaction items"
+  - name: sourceName
+    type: string
+    required: true
+    description: "Origin channel (e.g. web, mobile)"

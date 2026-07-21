@@ -1,0 +1,240 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:14-alpine
+    container_name: cartco-postgres
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=postgres
+    volumes:
+      - ./docker/postgres/init-db.sql:/docker-entrypoint-initdb.d/init-db.sql
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  minio:
+    image: minio/minio:latest
+    container_name: cartco-minio
+    ports:
+      - "9000:9000" # API
+      - "9001:9001" # Console UI
+    command: server /data --console-address ":9001"
+    environment:
+      - MINIO_ROOT_USER=admin
+      - MINIO_ROOT_PASSWORD=password123
+    volumes:
+      - minio_data:/data
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9000/minio/health/live"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  minio-init:
+    image: minio/mc:latest
+    container_name: cartco-minio-init
+    depends_on:
+      minio:
+        condition: service_healthy
+    entrypoint: >
+      /bin/sh -c "
+      sleep 3;
+      mc alias set local http://minio:9000 admin password123;
+      mc mb local/bronze || true;
+      mc mb local/silver || true;
+      mc mb local/gold || true;
+      mc mb local/warehouse || true;
+      exit 0;
+      "
+
+  nessie:
+    image: projectnessie/nessie:latest
+    container_name: cartco-nessie
+    ports:
+      - "19120:19120"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:19120/api/v1/config"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  redpanda:
+    image: docker.redpanda.com/redpandadata/redpanda:v23.2.11
+    container_name: cartco-redpanda
+    ports:
+      - "9092:9092" # External Kafka API port (for host scripts)
+      - "9094:9094" # Internal Kafka container port
+      - "8081:8081" # Schema registry
+      - "8082:8082" # HTTP Proxy API
+      - "9644:9644" # Admin API
+    command: >
+      redpanda start
+      --smp 1
+      --overprovisioned
+      --kafka-addr PLAINTEXT://0.0.0.0:9094,OUTSIDE://0.0.0.0:9092
+      --advertise-kafka-addr PLAINTEXT://redpanda:9094,OUTSIDE://localhost:9092
+      --pandaproxy-addr 0.0.0.0:8082
+      --advertise-pandaproxy-addr redpanda:8082
+      --schema-registry-addr 0.0.0.0:8081
+    healthcheck:
+      test: ["CMD", "rpk", "cluster", "info"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 15s
+
+  redpanda-console:
+    image: docker.redpanda.com/redpandadata/console:v2.3.5
+    container_name: cartco-redpanda-console
+    ports:
+      - "8080:8080" # Kafka console UI
+    environment:
+      - KAFKA_BROKERS=redpanda:9094
+      - KAFKA_SCHEMAREGISTRY_ENABLED=true
+      - KAFKA_SCHEMAREGISTRY_URLS=http://redpanda:8081
+    depends_on:
+      redpanda:
+        condition: service_healthy
+
+  marquez:
+    image: marquezproject/marquez:latest
+    container_name: cartco-marquez
+    ports:
+      - "5000:5000" # API
+      - "3000:3000" # UI
+    environment:
+      - MARQUEZ_CONFIG=/usr/src/app/marquez.dev.yml
+      - POSTGRES_HOST=postgres
+      - POSTGRES_PORT=5432
+      - POSTGRES_DB=marquez
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    depends_on:
+      postgres:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5001/healthcheck"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  spark-master:
+    image: bitnamilegacy/spark:3.5.0
+    container_name: cartco-spark-master
+    ports:
+      - "7077:7077" # Spark Master port
+      - "8085:8080" # Web UI
+    environment:
+      - SPARK_MODE=master
+      - SPARK_RPC_AUTHENTICATION_ENABLED=no
+      - SPARK_RPC_ENCRYPTION_ENABLED=no
+      - SPARK_LOCAL_STORAGE_ENCRYPTION_ENABLED=no
+      - SPARK_SSL_ENABLED=no
+      - AWS_ACCESS_KEY_ID=admin
+      - AWS_SECRET_ACCESS_KEY=password123
+      - AWS_REGION=us-east-1
+    volumes:
+      - ./src:/opt/bitnami/spark/src
+      - ./data:/opt/bitnami/spark/data
+    healthcheck:
+      test: ["CMD", "bash", "-c", "cat < /dev/null > /dev/tcp/127.0.0.1/8080"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  spark-worker:
+    image: bitnamilegacy/spark:3.5.0
+    container_name: cartco-spark-worker
+    depends_on:
+      - spark-master
+    environment:
+      - SPARK_MODE=worker
+      - SPARK_MASTER_URL=spark://spark-master:7077
+      - SPARK_WORKER_CORES=2
+      - SPARK_WORKER_MEMORY=2g
+      - AWS_ACCESS_KEY_ID=admin
+      - AWS_SECRET_ACCESS_KEY=password123
+      - AWS_REGION=us-east-1
+    volumes:
+      - ./src:/opt/bitnami/spark/src
+      - ./data:/opt/bitnami/spark/data
+
+  airflow-init:
+    build: ./docker/airflow
+    container_name: cartco-airflow-init
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=postgresql+psycopg2://postgres:postgres@postgres:5432/airflow
+    command: db init
+
+  airflow-webserver:
+    build: ./docker/airflow
+    container_name: cartco-airflow-webserver
+    restart: always
+    depends_on:
+      airflow-init:
+        condition: service_completed_successfully
+    ports:
+      - "8089:8080" # Airflow UI
+    command: webserver
+    environment:
+      - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=postgresql+psycopg2://postgres:postgres@postgres:5432/airflow
+      - AIRFLOW__CORE__EXECUTOR=LocalExecutor
+      - AIRFLOW__CORE__LOAD_EXAMPLES=False
+      - AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION=False
+      - AIRFLOW__SCHEDULER__DAG_DIR_LIST_INTERVAL=15
+      - AWS_ACCESS_KEY_ID=admin
+      - AWS_SECRET_ACCESS_KEY=password123
+      - AWS_REGION=us-east-1
+      - AIRFLOW__OPENLINEAGE__DISABLED=False
+      - 'AIRFLOW__OPENLINEAGE__TRANSPORT={"type": "http", "url": "http://marquez:5000"}'
+      - AIRFLOW__OPENLINEAGE__NAMESPACE=cartco-lakehouse
+      - SPARK_HOME=/usr/local/spark # fallback config if needed
+    volumes:
+      - ./src/airflow/dags:/opt/airflow/dags
+      - ./src:/opt/airflow/src
+      - ./data:/opt/airflow/data
+      - airflow_logs:/opt/airflow/logs
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/health"]
+      interval: 10s
+      timeout: 10s
+      retries: 5
+
+  airflow-scheduler:
+    build: ./docker/airflow
+    container_name: cartco-airflow-scheduler
+    restart: always
+    depends_on:
+      airflow-init:
+        condition: service_completed_successfully
+    command: scheduler
+    environment:
+      - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=postgresql+psycopg2://postgres:postgres@postgres:5432/airflow
+      - AIRFLOW__CORE__EXECUTOR=LocalExecutor
+      - AIRFLOW__CORE__LOAD_EXAMPLES=False
+      - AWS_ACCESS_KEY_ID=admin
+      - AWS_SECRET_ACCESS_KEY=password123
+      - AWS_REGION=us-east-1
+      - AIRFLOW__OPENLINEAGE__DISABLED=False
+      - 'AIRFLOW__OPENLINEAGE__TRANSPORT={"type": "http", "url": "http://marquez:5000"}'
+      - AIRFLOW__OPENLINEAGE__NAMESPACE=cartco-lakehouse
+    volumes:
+      - ./src/airflow/dags:/opt/airflow/dags
+      - ./src:/opt/airflow/src
+      - ./data:/opt/airflow/data
+      - airflow_logs:/opt/airflow/logs
+
+volumes:
+  postgres_data:
+  minio_data:
+  airflow_logs:
